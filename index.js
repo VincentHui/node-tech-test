@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const makeRequest = require("./collection");
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -11,5 +12,6 @@ app.listen(port, () => {
 });
 
 setInterval(function () {
-  console.log("30");
+  console.log("");
+  makeRequest("http://test1.infra.getlenses.co.uk/", (res) => {});
 }, 30000);
