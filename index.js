@@ -12,6 +12,8 @@ app.listen(port, () => {
 });
 
 setInterval(function () {
-  console.log("");
+  //want to make this a list of promises to resolve and concat into one array and store in memory
   makeRequest("http://test1.infra.getlenses.co.uk/", (res) => {});
+  makeRequest("http://test2.infra.getlenses.co.uk/", (res) => {});
+  makeRequest("http://test3.infra.getlenses.co.uk/", (res) => {});
 }, 30000);
