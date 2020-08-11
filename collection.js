@@ -1,11 +1,17 @@
 var http = require("http");
-var str = "";
+const axios = require("axios");
 
-export function makeRequest(url, callback) {
-  var options = {
-    host: url,
-    path: "/",
-  };
+const makeRequest = async (url) => axios.get(url);
 
-  var req = http.request(options, callback).end();
-}
+const collect = async () => {
+  const responses = await axios.all([
+    makeRequest("http://test1.infra.getlenses.co.uk/"),
+    makeRequest("http://test2.infra.getlenses.co.uk/"),
+    makeRequest("http://test3.infra.getlenses.co.uk/"),
+  ]);
+  return responses.reduce((acc, r) => {
+    return acc.concat(r.data);
+  }, []);
+};
+
+module.exports = collect;
