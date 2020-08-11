@@ -1,12 +1,10 @@
 var http = require("http");
 
-function makeRequest(url, callback) {
-  var options = {
-    host: url,
-    path: "/",
-  };
-
-  var req = http.request(options, callback).end();
-}
-
+const makeRequest = (url, callback) => http.get(url, callback);
+makeRequest("http://test3.infra.getlenses.co.uk/", (res) => {
+  res.setEncoding("utf8");
+  res.on("data", function (body) {
+    console.log(body);
+  });
+});
 module.exports.makeRequest = makeRequest;
