@@ -4,7 +4,7 @@ const port = 3000;
 const makeRequest = require("./collection");
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Human readable response!");
 });
 
 app.listen(port, () => {
