@@ -19,5 +19,4 @@ const parseJson = (jsonArray) =>
     return acc + objReadable + "\n";
   }, "");
 
-console.log(parseJson(testAray));
-module.exports.parseJson = parseJson;
+module.exports = parseJson;
