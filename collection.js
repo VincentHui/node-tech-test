@@ -1,10 +1,11 @@
 var http = require("http");
+const axios = require("axios");
 
-const makeRequest = (url, callback) => http.get(url, callback);
-makeRequest("http://test3.infra.getlenses.co.uk/", (res) => {
-  res.setEncoding("utf8");
-  res.on("data", function (body) {
-    console.log(body);
-  });
-});
+const makeRequest = async (url) => axios.get(url);
+(async () => {
+  const response = await makeRequest("http://test3.infra.getlenses.co.uk/");
+  console.log(response.data);
+})();
+
+// console.log(response);
 module.exports.makeRequest = makeRequest;
