@@ -5,12 +5,15 @@ const collect = require("./collection");
 const parseJson = require("./jsonParser");
 
 jsonOutput = [];
-
+//start initial population of json output
 collect().then((l) => {
   console.log("collected!");
   jsonOutput = l;
 });
+//eg http://localhost:3000/?catagory=true&priority=true
 app.get("/", (req, res) => {
+  console.log(req.query.catagory);
+  console.log(req.query.priority);
   res.send(parseJson(jsonOutput));
 });
 
