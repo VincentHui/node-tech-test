@@ -7,22 +7,21 @@ const testData = [
   },
   {
     ID: "ASDsafFAeadf",
+    Priority: "1",
+    Category: "C",
+    Description: "Lorem ipsum dolor sit amet",
+  },
+  {
+    ID: "ASDsafFAeadf",
     Priority: "4",
     Category: "B",
     Description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
   },
-  {
-    ID: "ASDsafFAeadf",
-    Priority: "4",
-    Category: "C",
-    Description: "Lorem ipsum dolor sit amet",
-  },
 ];
 
-const sortPriority = (A, B) => {
-  A.Priority - B.Priority;
-};
+//Ascending order
+const sortPriority = (A, B) => A.Priority - B.Priority;
 
 const sortCategory = (A, B) => {
   if (A.Category < B.Category) {
@@ -34,4 +33,16 @@ const sortCategory = (A, B) => {
   return 0;
 };
 
-console.log(testData.sort(sortCategory));
+const getSort = (sortType) => {
+  switch (sortType) {
+    case "priority":
+      return sortPriority;
+    case "category":
+      return sortCategory;
+    default:
+      //made priority default
+      return sortPriority;
+  }
+};
+
+module.exports = getSort;

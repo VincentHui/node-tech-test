@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const collect = require("./collection");
 const parseJson = require("./jsonParser");
-
+const getSort = require("./sort");
 jsonOutput = [];
 //start initial population of json output
 collect().then((l) => {
@@ -12,9 +12,8 @@ collect().then((l) => {
 });
 //eg http://localhost:3000/?catagory=true&priority=true
 app.get("/", (req, res) => {
-  console.log(req.query.catagory);
-  console.log(req.query.priority);
-  res.send(parseJson(jsonOutput));
+  console.log(`sort type is ${req.query.sort}`);
+  res.send(parseJson(jsonOutput.sort(getSort(req.query.sort))));
 });
 
 app.listen(port, () => {
