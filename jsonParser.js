@@ -13,6 +13,8 @@ const testAray = [
   },
 ];
 
-export function parseJson(jsonArray) {
+function parseJson(jsonArray) {
   return "human readable response";
 }
+
+module.exports.parseJson = parseJson;

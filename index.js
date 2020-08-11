@@ -2,11 +2,12 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const makeRequest = require("./collection");
+const parseJson = require("./jsonParser");
 
 jsonOutput = [];
 
 app.get("/", (req, res) => {
-  res.send("Human readable response!");
+  res.send(parseJson.parseJson(jsonOutput));
 });
 
 app.listen(port, () => {
