@@ -15,7 +15,7 @@ const testAray = [
 
 const parseJson = (jsonArray) =>
   jsonArray.reduce((acc, obj) => {
-    const objReadable = `ID: obj.ID \nPriority: ${obj.Priority} \nCategory: ${obj.Category} \nDescription: ${obj.Description} \n`;
+    const objReadable = `ID: ${obj.ID} \nPriority: ${obj.Priority} \nCategory: ${obj.Category} \nDescription: ${obj.Description} \n`;
     return acc + objReadable + "\n";
   }, "");
 
