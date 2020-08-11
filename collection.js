@@ -14,4 +14,4 @@ const collect = async () => {
   }, []);
 };
 
-module.exports.collect = collect;
+module.exports = collect;
