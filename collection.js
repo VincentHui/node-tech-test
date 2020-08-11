@@ -1,7 +1,6 @@
 var http = require("http");
-var str = "";
 
-export function makeRequest(url, callback) {
+function makeRequest(url, callback) {
   var options = {
     host: url,
     path: "/",
@@ -9,3 +8,5 @@ export function makeRequest(url, callback) {
 
   var req = http.request(options, callback).end();
 }
+
+module.exports.makeRequest = makeRequest;
