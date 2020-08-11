@@ -11,7 +11,7 @@ collect().then((l) => {
   jsonOutput = l;
 });
 app.get("/", (req, res) => {
-  res.send(parseJson.parseJson(jsonOutput));
+  res.send(parseJson(jsonOutput));
 });
 
 app.listen(port, () => {
