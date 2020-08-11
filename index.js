@@ -10,10 +10,12 @@ collect().then((l) => {
   console.log("collected!");
   jsonOutput = l;
 });
-//eg http://localhost:3000/?catagory=true&priority=true
+//eg http://localhost:3000/?sort=priority will get the list sorted by priority
 app.get("/", (req, res) => {
   console.log(`sort type is ${req.query.sort}`);
-  res.send(parseJson(jsonOutput.sort(getSort(req.query.sort))));
+  const response = parseJson(jsonOutput.sort(getSort(req.query.sort)));
+  console.log(response);
+  res.send(response);
 });
 
 app.listen(port, () => {
