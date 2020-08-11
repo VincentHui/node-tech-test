@@ -6,15 +6,18 @@ const testAray = [
     Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
-    ID: "ad3jlDFsdafF",
+    ID: "ad3jalDFsdafFsa",
     Priority: "3",
     Category: "C",
     Description: "Lorem ipsum dolor sit amet",
   },
 ];
 
-function parseJson(jsonArray) {
-  return "human readable response";
-}
+const parseJson = (jsonArray) =>
+  jsonArray.reduce((acc, obj) => {
+    const objReadable = `ID: obj.ID \nPriority: ${obj.Priority} \nCategory: ${obj.Category} \nDescription: ${obj.Description} \n`;
+    return acc + objReadable + "\n";
+  }, "");
 
+console.log(parseJson(testAray));
 module.exports.parseJson = parseJson;
